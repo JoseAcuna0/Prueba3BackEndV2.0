@@ -9,9 +9,9 @@ using ApiPrueba3V2._00.src.Interface;
 using ApiPrueba3V2._00.src.Model;
 using Microsoft.IdentityModel.Tokens;
 
-namespace catedra3Backend.src.services
+namespace ApiPrueba3V2._00.src.Services
 {
-    public class JwtService : IJwrService
+    public class JwtService : IJwtService
     {
          private readonly SymmetricSecurityKey _key;
 

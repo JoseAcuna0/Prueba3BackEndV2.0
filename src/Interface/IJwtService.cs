@@ -6,7 +6,7 @@ using ApiPrueba3V2._00.src.Model;
 
 namespace ApiPrueba3V2._00.src.Interface
 {
-    public interface IJwrService
+    public interface IJwtService
     {
         string CreateToken(AppUser user);
     }

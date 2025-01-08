@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace ApiPrueba3V2._00.src.Data
 {
-    public class ApplicationDBContext : IdentityDbContext
+    public class ApplicationDBContext : IdentityDbContext<AppUser>
     {
 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) { }
