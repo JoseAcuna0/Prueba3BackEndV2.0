@@ -143,3 +143,5 @@ D:\Proyectos\DWM\Prueba3Bend\ApiPrueba3V2.00\obj\Debug\net8.0\refint\ApiPrueba3V
 D:\Proyectos\DWM\Prueba3Bend\ApiPrueba3V2.00\obj\Debug\net8.0\ApiPrueba3V2.00.pdb
 D:\Proyectos\DWM\Prueba3Bend\ApiPrueba3V2.00\obj\Debug\net8.0\ApiPrueba3V2.00.genruntimeconfig.cache
 D:\Proyectos\DWM\Prueba3Bend\ApiPrueba3V2.00\obj\Debug\net8.0\ref\ApiPrueba3V2.00.dll
+D:\Proyectos\DWM\Prueba3Bend\ApiPrueba3V2.00\bin\Debug\net8.0\CloudinaryDotNet.dll
+D:\Proyectos\DWM\Prueba3Bend\ApiPrueba3V2.00\bin\Debug\net8.0\Newtonsoft.Json.dll

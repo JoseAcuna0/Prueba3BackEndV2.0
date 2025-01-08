@@ -11,8 +11,7 @@ namespace ApiPrueba3V2._00.src.DTOs
         [MinLength(5, ErrorMessage = "El título debe tener al menos 5 caracteres.")]
         public string title { get; set; } = null!;
 
-        [Url(ErrorMessage = "Debe ser una URL válida.")]
-        public string url { get; set; } = null!;
+        public IFormFile url { get; set; } = null!;
 
         
     }

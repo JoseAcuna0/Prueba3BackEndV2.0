@@ -21,13 +21,13 @@ namespace ApiPrueba3V2._00.src.Repository
             _context = context;
         }
 
-        public async Task<PostDTO> CreatePostAsync(CreatePostDTO postDto, string userId)
+        public async Task<PostDTO> CreatePostAsync(CreatePostDTO postDto, string userId, string imageUrl)
         {
             var post = new Post
             {
                 title = postDto.title,
                 publishDate = DateTime.Now,
-                url = postDto.url,
+                url = imageUrl,
                 UserId = userId
             };
 

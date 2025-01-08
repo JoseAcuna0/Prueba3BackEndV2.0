@@ -19,11 +19,14 @@ using CloudinaryDotNet;
 var builder = WebApplication.CreateBuilder(args);
 DotNetEnv.Env.Load();
 
-var CloudinarySettings = builder.Configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
+string cloudName = Environment.GetEnvironmentVariable("CLOUDINARY_CLOUD_NAME") ?? throw new ArgumentNullException("CLOUDINARY_CLOUD_NAME");
+string apiKey = Environment.GetEnvironmentVariable("CLOUDINARY_API_KEY") ?? throw new ArgumentNullException("CLOUDINARY_API_KEY");
+string apiSecret = Environment.GetEnvironmentVariable("CLOUDINARY_API_SECRET") ?? throw new ArgumentNullException("CLOUDINARY_API_SECRET");
+
     var cloudinaryAccount = new Account(
-        CloudinarySettings!.CloudName,
-        CloudinarySettings.ApiKey,
-        CloudinarySettings.ApiSecret
+        cloudName,
+        apiKey,
+        apiSecret
     );
 var cloudinary = new Cloudinary(cloudinaryAccount);
 builder.Services.AddSingleton(cloudinary);
