@@ -3,23 +3,30 @@ using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using System.Text;
-using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using ApiPrueba3V2._00.src.Interfaces;
 using ApiPrueba3V2._00.src.Repository;
 using ApiPrueba3V2._00.src.Interface;
 using ApiPrueba3V2._00.src.Services;
 using ApiPrueba3V2._00.src.Model;
+using ApiPrueba3V2._00.src.Helpers;
+using CloudinaryDotNet;
 
 
 
 var builder = WebApplication.CreateBuilder(args);
 DotNetEnv.Env.Load();
+
+var CloudinarySettings = builder.Configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
+    var cloudinaryAccount = new Account(
+        CloudinarySettings!.CloudName,
+        CloudinarySettings.ApiKey,
+        CloudinarySettings.ApiSecret
+    );
+var cloudinary = new Cloudinary(cloudinaryAccount);
+builder.Services.AddSingleton(cloudinary);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -121,7 +128,8 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
+    app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 
 }
 
