@@ -36,7 +36,7 @@ namespace ApiPrueba3V2._00.src.Controllers
 
         [HttpPost]
         [Consumes("multipart/form-data")]
-        public async Task<IActionResult> CreatePost([FromBody] CreatePostDTO createPostDto)
+        public async Task<IActionResult> CreatePost([FromForm] CreatePostDTO createPostDto)
         {
             if(createPostDto.url == null || createPostDto.url.Length == 0)
             {
