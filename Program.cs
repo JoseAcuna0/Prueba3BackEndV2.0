@@ -68,6 +68,16 @@ builder.Services.AddSwaggerGen(option =>
     );
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200") 
+              .AllowAnyHeader()                     
+              .AllowAnyMethod();                   
+    });
+});
+
 string connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ?? "Data Source=database.db";
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlite(connectionString));
 
@@ -133,6 +143,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
+    app.UseCors("AllowFrontend");
 
 }
 
